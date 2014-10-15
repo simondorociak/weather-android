@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="id_pref_meters_value">1</string>
+    <string name="id_pref_miles_value">2</string>
+    <string name="id_pref_celsius_value">3</string>
+    <string name="id_pref_fahrenheit_value">4</string>
+
+</resources>

@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- ActionBar sizes -->
+    <dimen name="ab_title_size">18sp</dimen>
+
+    <!-- Padding used in UI -->
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="double_default_padding">32dp</dimen>
+    <dimen name="half_default_padding">8dp</dimen>
+    <dimen name="quarter_default_padding">4dp</dimen>
+    <dimen name="eighth_default_padding">2dp</dimen>
+    <dimen name="divider_horizontal_height">1dp</dimen>
+    <dimen name="navigation_menu_width">300dp</dimen>
+
+    <!-- Weather condition icon size -->
+    <dimen name="weather_today_condition_icon_size">54dp</dimen>
+    <dimen name="weather_forecast_condition_icon_size">44dp</dimen>
+
+    <!-- Navigation sizes -->
+    <dimen name="nav_item_text_size">22sp</dimen>
+    
+    <!-- General sizes -->
+    <dimen name="day_text_size">33sp</dimen>
+    <dimen name="condition_text_size">18sp</dimen>
+    <dimen name="temperature_text_size">33sp</dimen>
+    <dimen name="city_text_size">12sp</dimen>
+    <dimen name="information_text_size">20sp</dimen>
+    <dimen name="error_text_size">18sp</dimen>
+
+</resources>

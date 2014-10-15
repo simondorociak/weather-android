@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_padding"
+    android:background="@drawable/forecast_list_selector"
+    >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/default_padding"
+        android:layout_marginEnd="@dimen/default_padding"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/overlay_weather_status_forecast"
+            android:contentDescription="@string/weather_icon_description"
+            />
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/weather_forecast_condition_icon_size"
+            android:layout_height="@dimen/weather_forecast_condition_icon_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/weather_icon_description"
+            />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        >
+
+        <sk.simondorociak.weather.android.view.TypefaceTextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday"
+            android:textColor="@color/forecast_day"
+            android:textSize="@dimen/day_text_size"
+            android:layout_marginBottom="@dimen/default_padding"
+            app:font="@string/font_light"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <sk.simondorociak.weather.android.view.TypefaceTextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22 C"
+                android:textColor="@color/forecast_temperature"
+                android:textSize="@dimen/temperature_text_size"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="@dimen/default_padding"
+                android:layout_marginEnd="@dimen/default_padding"
+                app:font="@string/font_medium"
+                />
+
+            <sk.simondorociak.weather.android.view.TypefaceTextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny Intervals"
+                android:textColor="@color/forecast_condition"
+                android:textSize="@dimen/condition_text_size"
+                android:layout_toRightOf="@id/temperature"
+                android:layout_toEndOf="@id/temperature"
+                android:layout_alignBaseline="@id/temperature"
+                app:font="@string/font_light"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

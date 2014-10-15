@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_padding"
+    >
+
+    <LinearLayout
+        android:id="@+id/weather_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/default_padding"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/overlay_weather_status_today"
+                    android:contentDescription="@string/weather_icon_description"
+                    />
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/icon"
+                    android:layout_width="@dimen/weather_today_condition_icon_size"
+                    android:layout_height="@dimen/weather_today_condition_icon_size"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weather_icon_description"
+                    />
+
+            </FrameLayout>
+
+            <sk.simondorociak.weather.android.view.TypefaceTextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prague, Czech Republic"
+                android:textColor="@color/today_city"
+                android:textSize="@dimen/city_text_size"
+                android:layout_gravity="center_horizontal"
+                app:font="@string/font_light"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:id="@+id/temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25 C"
+                    android:textColor="@color/today_temperature"
+                    android:textSize="@dimen/temperature_text_size"
+                    android:layout_gravity="center_horizontal"
+                    app:font="@string/font_medium"
+                    />
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textColor="@color/today_temperature"
+                    android:textSize="@dimen/temperature_text_size"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/half_default_padding"
+                    android:layout_marginStart="@dimen/half_default_padding"
+                    android:layout_marginRight="@dimen/half_default_padding"
+                    android:layout_marginEnd="@dimen/half_default_padding"
+                    app:font="@string/font_medium"
+                    />
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:id="@+id/condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunny"
+                    android:textColor="@color/today_temperature"
+                    android:textSize="@dimen/temperature_text_size"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_gravity="center_horizontal"
+                    app:font="@string/font_medium"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_horizontal_height"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/double_default_padding"
+            android:layout_marginBottom="@dimen/double_default_padding"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:background="@android:color/transparent"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:background="#dfdfdf"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:background="@android:color/transparent"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weather_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/double_default_padding"
+                >
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:id="@+id/humidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:drawableTop="@drawable/ic_weather_humidity"
+                    android:text="56%"
+                    android:textColor="@color/today_info"
+                    android:textSize="@dimen/information_text_size"
+                    android:gravity="center"
+                    app:font="@string/font_medium"
+                    />
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:id="@+id/precipitation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:drawableTop="@drawable/ic_weather_precipitation"
+                    android:text="0.0 mm"
+                    android:textColor="@color/today_info"
+                    android:textSize="@dimen/information_text_size"
+                    android:gravity="center"
+                    app:font="@string/font_medium"
+                    />
+
+                <sk.simondorociak.weather.android.view.TypefaceTextView
+                    android:id="@+id/pressure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:drawableTop="@drawable/ic_weather_pressure"
+                    android:text="1019 hPa"
+                    android:textColor="@color/today_info"
+                    android:textSize="@dimen/information_text_size"
+                    android:gravity="center"
+                    app:font="@string/font_medium"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:baselineAligned="false"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    >
+
+                    <sk.simondorociak.weather.android.view.TypefaceTextView
+                        android:id="@+id/wind_speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_weather_wind_speed"
+                        android:text="20 km/h"
+                        android:textColor="@color/today_info"
+                        android:textSize="@dimen/information_text_size"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        app:font="@string/font_medium"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    >
+
+                    <sk.simondorociak.weather.android.view.TypefaceTextView
+                        android:id="@+id/direction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_weather_direction"
+                        android:text="SE"
+                        android:textColor="@color/today_info"
+                        android:textSize="@dimen/information_text_size"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        app:font="@string/font_medium"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <sk.simondorociak.weather.android.view.TypefaceTextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/error_message"
+        android:textColor="@color/today_info"
+        android:textSize="@dimen/error_text_size"
+        android:gravity="center"
+        app:font="@string/font_light"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
