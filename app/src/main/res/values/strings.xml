@@ -25,7 +25,8 @@
     <string name="weather_location">%1$s, %2$s</string>
 
     <!-- Messages -->
-    <string name="error_message">Unable to load weather :(\nCheck your network connection</string>
+    <string name="message_error">Unable to load weather :(\nCheck your network connection</string>
+    <string name="message_no_network">No Network</string>
 
     <!-- Options menus -->
     <string name="action_settings">Settings</string>

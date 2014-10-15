@@ -260,12 +260,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/error_message"
+        android:text="@string/message_error"
         android:textColor="@color/today_info"
         android:textSize="@dimen/error_text_size"
         android:gravity="center"
         app:font="@string/font_light"
         android:visibility="gone"
+        />
+
+    <sk.simondorociak.weather.android.view.TypefaceTextView
+        android:id="@+id/no_network_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/message_no_network"
+        android:textColor="@color/today_info"
+        android:textSize="@dimen/error_text_size"
+        android:gravity="center"
+        android:visibility="gone"
+        app:font="@string/font_light"
         />
 
 </RelativeLayout>
