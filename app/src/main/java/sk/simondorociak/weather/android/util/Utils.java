@@ -1,6 +1,8 @@
 package sk.simondorociak.weather.android.util;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 
 import sk.simondorociak.weather.R;
@@ -19,6 +21,17 @@ public final class Utils {
      * Disable class instantiation.
      */
     private Utils() { }
+
+    /**
+     * Checks whether device is online or not.
+     * @param context current Context
+     * @return true if device is online, false otherwise
+     */
+    public static boolean isDeviceOnline(final Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
 
     /**
      * Formats provided temperature and returns it.

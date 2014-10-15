@@ -56,6 +56,7 @@ public class Main extends BaseActivity {
 
     // currently visible fragment
     private Fragment mVisibleFragment;
+    private int lastPosition = 0;
 
     // dialogs
     private Dialog mGpsDialog;
@@ -88,7 +89,7 @@ public class Main extends BaseActivity {
         }
 
         // set-up location provider
-        setUpLocationProvider();
+        updateLocationProvider();
 
         // after first launch show first navigation item
         if (savedInstanceState == null) {
@@ -116,6 +117,7 @@ public class Main extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         // start GSP tracking
         if (!TextUtils.isEmpty(mLocationProvider)) {
             startLocationTracking(mLocationProvider);
@@ -145,7 +147,7 @@ public class Main extends BaseActivity {
             // if user enabled at least one provider
             else {
                 // set-up location provider
-                setUpLocationProvider();
+                updateLocationProvider();
 
                 // start GPS tracking
                 startLocationTracking(mLocationProvider);
@@ -157,9 +159,9 @@ public class Main extends BaseActivity {
     }
 
     /**
-     * Sets up location provider that application should use.
+     * Updates location provider that application should use.
      */
-    private void setUpLocationProvider() {
+    private void updateLocationProvider() {
         if (isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             mLocationProvider = LocationManager.NETWORK_PROVIDER;
             L.info("Used NetworkProvider");
@@ -219,8 +221,15 @@ public class Main extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View row, int position, long id) {
 
-                // add fragment due to clicked position in navigation
-                setNavigationItem(position, (NavigationItem) parent.getItemAtPosition(position));
+                // exclude tapping on the same navigation item
+                if (position != lastPosition) {
+                    setNavigationItem(position, (NavigationItem) parent.getItemAtPosition(position));
+                    lastPosition = position;
+                }
+                // if user tapped on same navigation item just close navigation drawer
+                else {
+                    mDrawerLayout.closeDrawer(mNavigationList);
+                }
             }
         });
     }

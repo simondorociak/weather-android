@@ -43,7 +43,7 @@ public class ForecastFragment extends Fragment implements Updateable {
     // UI widgets
     private ListView mForecastList;
     private ProgressBar mProgressBar;
-    private TextView mError;
+    private TextView mError, mNoNetwork;
 
     /**
      * Gets instance of this Fragment.
@@ -174,6 +174,7 @@ public class ForecastFragment extends Fragment implements Updateable {
         mForecastList = (ListView) root.findViewById(R.id.forecast_list);
         mProgressBar = (ProgressBar) root.findViewById(R.id.progress);
         mError = (TextView) root.findViewById(R.id.error_text);
+        mNoNetwork = (TextView) root.findViewById(R.id.no_network_text);
 
         // show progress and hide forecast list
         Utils.showView(mProgressBar);
@@ -208,12 +209,12 @@ public class ForecastFragment extends Fragment implements Updateable {
                             ((ForecastAdapter) mForecastList.getAdapter()).update(response.getWeather());
 
                             // hide progress dialog and show forecast list
-                            Utils.hideView(mProgressBar, mError);
+                            Utils.hideView(mProgressBar, mNoNetwork, mError);
                             Utils.showView(mForecastList);
                         }
                         else {
                             // show error message to user
-                            Utils.hideView(mForecastList, mProgressBar);
+                            Utils.hideView(mForecastList, mNoNetwork, mProgressBar);
                             Utils.showView(mError);
                         }
                     }
@@ -221,7 +222,7 @@ public class ForecastFragment extends Fragment implements Updateable {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Utils.hideView(mForecastList, mProgressBar);
+                        Utils.hideView(mForecastList, mNoNetwork, mProgressBar);
                         Utils.showView(mError);
                     }
                 }));
@@ -230,7 +231,14 @@ public class ForecastFragment extends Fragment implements Updateable {
     @Override
     public void onUpdate() {
         // load current forecast
-        loadForecastFromServer(PreferenceUtils.getDouble(Const.PREF_LATITUDE),
-                PreferenceUtils.getDouble(Const.PREF_LONGITUDE));
+        if (Utils.isDeviceOnline(AppController.getContext())) {
+            loadForecastFromServer(PreferenceUtils.getDouble(Const.PREF_LATITUDE),
+                    PreferenceUtils.getDouble(Const.PREF_LONGITUDE));
+        }
+        // show no network layout to uer
+        else {
+            Utils.hideView(mForecastList, mProgressBar, mError);
+            Utils.showView(mNoNetwork);
+        }
     }
 }

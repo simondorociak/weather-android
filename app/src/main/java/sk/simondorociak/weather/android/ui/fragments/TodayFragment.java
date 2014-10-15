@@ -36,7 +36,7 @@ public class TodayFragment extends Fragment implements Updateable {
     private LinearLayout mWeatherLayout;
     private NetworkImageView mWeatherIcon;
     private TextView mCity, mTemperature, mCondition, mHumidity, mPrecipitation;
-    private TextView mPressure, mWindSpeed, mDirection, mError;
+    private TextView mPressure, mWindSpeed, mDirection, mError, mNoNetwork;
     private ProgressBar mProgressBar;
 
     // current weather data
@@ -99,6 +99,7 @@ public class TodayFragment extends Fragment implements Updateable {
         mDirection = (TextView) root.findViewById(R.id.direction);
         mProgressBar = (ProgressBar) root.findViewById(R.id.progress);
         mError = (TextView) root.findViewById(R.id.error_text);
+        mNoNetwork = (TextView) root.findViewById(R.id.no_network_text);
 
         // hide fragment content and show progress
         Utils.hideView(mWeatherLayout);
@@ -123,12 +124,12 @@ public class TodayFragment extends Fragment implements Updateable {
                             showWeatherData(mTodayWeather);
 
                             // show fragment content and hide progress bar
-                            Utils.hideView(mProgressBar, mError);
+                            Utils.hideView(mProgressBar, mNoNetwork, mError);
                             Utils.showView(mWeatherLayout);
                         }
                         else {
                             // show error message to user
-                            Utils.hideView(mWeatherLayout, mProgressBar);
+                            Utils.hideView(mWeatherLayout, mNoNetwork, mProgressBar);
                             Utils.showView(mError);
                         }
                     }},
@@ -137,7 +138,7 @@ public class TodayFragment extends Fragment implements Updateable {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         // show error message to user
-                        Utils.hideView(mWeatherLayout, mProgressBar);
+                        Utils.hideView(mWeatherLayout, mProgressBar, mNoNetwork);
                         Utils.showView(mError);
                     }}));
     }
@@ -201,8 +202,15 @@ public class TodayFragment extends Fragment implements Updateable {
         final double latitude = PreferenceUtils.getDouble(Const.PREF_LATITUDE);
         final double longitude = PreferenceUtils.getDouble(Const.PREF_LONGITUDE);
 
-        // load weather data from server
-        loadTodayWeatherFromServer(latitude, longitude);
-        loadWeatherLocationFromServer(latitude, longitude);
+        // load weather data from server if device is online
+        if (Utils.isDeviceOnline(AppController.getContext())) {
+            loadTodayWeatherFromServer(latitude, longitude);
+            loadWeatherLocationFromServer(latitude, longitude);
+        }
+        // show no network layout to user
+        else {
+            Utils.hideView(mWeatherLayout, mProgressBar, mError);
+            Utils.showView(mNoNetwork);
+        }
     }
 }
