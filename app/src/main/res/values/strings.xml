@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Global -->
+    <string name="app_name">Weather</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="share_via_text">Share via:</string>
+
+    <!-- Forecast -->
+    <string name="weather_icon_description">Weather icon</string>
+    <string name="navigation_icon_description">Navigation icon</string>
+
+    <!-- Preference keys -->
+    <string name="pref_key_length_unit">pref_key_length_unit</string>
+    <string name="pref_key_temperature_unit">pref_key_temperature_unit</string>
+
+    <!-- Today weather information -->
+    <string name="weather_temperature_celsius">%1$s℃</string>
+    <string name="weather_temperature_fahrenheit">%1$s℉</string>
+    <string name="weather_humidity">%s%%</string>
+    <string name="weather_precipitation">%1$s mm</string>
+    <string name="weather_pressure">%1$s hPa</string>
+    <string name="weather_wind_speed_m">%1$s m/h</string>
+    <string name="weather_wind_speed_miles">%1$s miles/h</string>
+    <string name="weather_location">%1$s, %2$s</string>
+
+    <!-- Messages -->
+    <string name="message_error">Unable to load weather :(\nCheck your network connection</string>
+    <string name="message_no_network">No Network</string>
+
+    <!-- Options menus -->
+    <string name="action_settings">Settings</string>
+
+    <!-- Context menus -->
+    <string name="forecast_list_row_menu_title">Actions</string>
+    <string name="action_share">Share</string>
+    <string name="action_share_email">Share via E-mail</string>
+    <string name="action_share_sms">Share via SMS</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_info_title">Information</string>
+    <string name="dialog_button_yes">Yes</string>
+    <string name="dialog_button_not_now">Not Now</string>
+    <string name="dialog_gps_message">This application requires enabled GPS for its functionality. Do you want to enable it now?</string>
+
+</resources>

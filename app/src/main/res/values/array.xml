@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="navigation_items">
+        <item>Today</item>
+        <item>Forecast</item>
+    </string-array>
+
+    <array name="navigation_icons">
+        <item>@drawable/nav_item_today_icon_selector</item>
+        <item>@drawable/nav_item_forecast_selector</item>
+    </array>
+
+    <string-array name="length_unit_entries">
+        <item>Meters</item>
+        <item>Miles</item>
+    </string-array>
+
+    <string-array name="length_unit_values">
+        <item>@string/id_pref_meters_value</item>
+        <item>@string/id_pref_miles_value</item>
+    </string-array>
+
+    <string-array name="temperature_unit_entries">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+
+    <string-array name="temperature_init_values">
+        <item>@string/id_pref_celsius_value</item>
+        <item>@string/id_pref_fahrenheit_value</item>
+    </string-array>
+
+</resources>

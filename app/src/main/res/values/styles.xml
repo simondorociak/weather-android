@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- base application theme for API < 14 -->
+    <style name="Theme.Light" parent="Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/ActionBar.Styled</item>
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Style</item>
+        <item name="homeAsUpIndicator">@drawable/ic_action_previous_item</item>
+    </style>
+
+    <!-- ActionBar customization -->
+    <style name="ActionBar.Styled" parent="Widget.Sherlock.Light.ActionBar">
+        <item name="background">@color/theme_blue</item>
+        <item name="backgroundStacked">@color/theme_blue</item>
+    </style>
+
+    <style name="ActionButton.Style" parent="Widget.Sherlock.Light.ActionButton.Overflow">
+        <item name="background">@drawable/ic_action_overflow</item>
+    </style>
+
+</resources>

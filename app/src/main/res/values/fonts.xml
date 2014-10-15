@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- If more fonts should be used in application
+    then name convention should be changed to [name]_[style] -->
+    <string name="font_light">Roboto-Light.ttf</string>
+    <string name="font_medium">Roboto-Medium.ttf</string>
+    <string name="font_regular">Roboto-Regular.ttf</string>
+
+</resources>

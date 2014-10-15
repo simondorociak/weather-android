@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/quarter_default_padding"
+    >
+
+    <ListView
+        android:id="@+id/forecast_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="@dimen/eighth_default_padding"
+        android:divider="@null"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:visibility="visible"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <sk.simondorociak.weather.android.view.TypefaceTextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/message_error"
+        android:textColor="@color/today_info"
+        android:textSize="@dimen/error_text_size"
+        android:gravity="center"
+        app:font="@string/font_light"
+        android:visibility="gone"
+        />
+
+    <sk.simondorociak.weather.android.view.TypefaceTextView
+        android:id="@+id/no_network_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/message_no_network"
+        android:textColor="@color/today_info"
+        android:textSize="@dimen/error_text_size"
+        android:gravity="center"
+        android:visibility="gone"
+        app:font="@string/font_light"
+        />
+
+</RelativeLayout>

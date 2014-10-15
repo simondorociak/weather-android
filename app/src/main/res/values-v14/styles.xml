@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- base application theme for API >= 14 -->
+    <style name="Theme.Light" parent="Theme.Sherlock.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Styled</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionButton.Styled</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_previous_item</item>
+    </style>
+
+    <!-- ActionBar customization -->
+    <style name="ActionBar.Styled" parent="Widget.Sherlock.Light.ActionBar">
+        <item name="android:background">@color/theme_blue</item>
+        <item name="android:backgroundStacked">@color/theme_blue</item>
+    </style>
+    
+    <style name="ActionButton.Styled" parent="Widget.Sherlock.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_overflow</item>
+    </style>
+
+</resources>
